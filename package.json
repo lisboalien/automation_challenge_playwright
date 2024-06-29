@@ -1,0 +1,19 @@
+{
+  "name": "automation_challenge_playwright",
+  "version": "1.0.0",
+  "description": "The automation challenge with playwright framework",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "@types/node": "^20.14.9"
+  },
+  "dependencies": {
+    "@types/csv-parse": "^1.2.2",
+    "csv-parse": "^5.5.6",
+    "dotenv": "^16.4.5"
+  }
+}
