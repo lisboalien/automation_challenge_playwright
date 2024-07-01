@@ -21,7 +21,7 @@ export class MainPage {
     constructor(page: Page) {
         this.page = page;
         this.startButton = page.getByRole('button', { name: 'Start' });
-        this.companyName = page.locator('div:contains("Company Name") + input');
+        this.companyName = page.locator('.bubble-r-line:has(>.bubble-r-box>.Text:has-text("Company Name")) .Input').last() 
         this.address = page.locator('div:contains("Address") + input');
         this.ein = page.locator('div:contains("EIN") + input');
         this.sector = page.locator('div:contains("Sector") + input');

@@ -4,6 +4,9 @@ import { test, expect } from '@playwright/test';
 import { parse } from 'csv-parse/sync';
 import { MainPage } from '../pages/main_page';
 
+const email = process.env.EMAIL ?? '';
+const password = process.env.PASSWORD ?? '';
+
 const records = parse(fs.readFileSync(path.join(__dirname, '../data_driven_tests/challenge.csv')), {
   columns: true,
   skip_empty_lines: true
@@ -12,16 +15,11 @@ const records = parse(fs.readFileSync(path.join(__dirname, '../data_driven_tests
 let mainPage: MainPage;
 
 test.describe('Challenge', () => {
-  test.beforeAll(async ({ page }) => {
-    mainPage = new MainPage(page);
-    await page.goto('/');
-
-    await mainPage.login('lisboalien@gmail.com', '9q*2uHMPosHxNZ');
-  });
-
   test.beforeEach(async ({ page }) => {
     mainPage = new MainPage(page);
     await page.goto('/');
+
+    await mainPage.login(email, password);
   });
 
   //records.forEach((record, index) => {
